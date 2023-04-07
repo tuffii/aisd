@@ -1,0 +1,82 @@
+#ifndef STACK_HPP
+#define STACK_HPP
+#include <bidirectionalList.hpp>
+
+namespace surby
+{
+  template < typename T >
+  class Stack
+  {
+  public:
+    Stack() = default;
+
+    void clear();
+    void pushFront(const T&);
+    void pushBack(const T&);
+    void popFront();
+    void popBack();
+
+    bool isEmpty() const;
+    size_t getSize() const;
+    const T& getBack() const;
+    const T& getFront() const;
+
+  private:
+    surby::BidirectionalList< T > list_;
+  };
+
+  template< typename T >
+  bool surby::Stack< T >::isEmpty() const
+  {
+    return this->list_.isEmpty();
+  }
+
+  template< typename T >
+  size_t Stack < T >::getSize() const
+  {
+    return this->list_.getSize();
+  }
+
+  template< typename T >
+  void Stack< T >::clear()
+  {
+    this->list_.clear();
+  }
+
+  template< typename T >
+  void Stack< T >::pushBack(const T& data)
+  {
+    this->list_.pushBack(data);
+  }
+
+  template< typename T >
+  void Stack< T >::pushFront(const T& data)
+  {
+    this->list_.pushFront(data);
+  }
+
+  template< typename T >
+  void Stack< T >::popBack()
+  {
+    this->list_.popBack();
+  }
+
+  template< typename T >
+  void Stack< T >::popFront()
+  {
+    this->list_.popFront();
+  }
+
+  template< typename T >
+  const T& Stack< T >::getBack() const
+  {
+    return this->list_.getBack();
+  }
+
+  template< typename T >
+  const T& Stack< T >::getFront() const
+  {
+    return this->list_.getFront();
+  }
+}
+#endif
